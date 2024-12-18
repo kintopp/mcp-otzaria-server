@@ -18,12 +18,17 @@ An MCP (Model Context Protocol) server that provides powerful search capabilitie
 
 Requires Python 3.10 or higher.
 
+
+### Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/yourusername/mcp-otzaria-server.git
 cd mcp-otzaria-server
+```
+### Get the index
+download and extract the index from [here](https://drive.google.com/file/d/1lpbBCPimwcNfC0VZOlQueA4SHNGIp5_t/view?usp=drive_link)
 
-# Install dependencies
+### Install dependencies
+```
 pip install .
 ```
 
@@ -83,7 +88,7 @@ mcp-otzaria-server/
 The server can be run directly:
 
 ```bash
-python -m jewish_library
+uv --directory path/to/directory run jewish_library
 ```
 
 Or through an MCP client that supports the Model Context Protocol.
