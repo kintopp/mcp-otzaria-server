@@ -1,5 +1,5 @@
 from typing import List, Dict, Any, Optional
-from tantivy import Index
+from tantivy import Index, Searcher
 import logging
 import os
 import re
@@ -12,74 +12,15 @@ class TantivySearchAgent:
         """Initialize the Tantivy search agent with the index path"""
         self.index_path = index_path
         self.logger = logging.getLogger(__name__)
+        self.index = None
+        self.searcher = None
         try:
             self.index = Index.open(index_path)            
+            self.searcher = self.index.searcher()
             self.logger.info(f"Successfully opened Tantivy index at {index_path}")
         except Exception as e:
             self.logger.error(f"Failed to open Tantivy index: {e}")
             raise
-
-    def get_query_instructions(self) -> str:
-        """Return instructions for the LLM on how to parse and construct Tantivy queries"""
-        return """
-Instructions for generating a query:
-
-1. Boolean Operators:
-
-   - AND: term1 AND term2 (both required)
-   - OR: term1 OR term2 (either term)
-   - Multiple words default to OR operation (cloud network = cloud OR network)
-   - AND takes precedence over OR
-   - Example: Shabath AND (walk OR go)
-
-2. Field-specific Terms:
-   - Field-specific terms: field:term
-   - Example: text:אדם AND reference:בראשית
-   - available fields: text, reference, topics
-   - text contains the text of the document
-   - reference contains the citation of the document, e.g. בראשית, פרק א
-   - topics contains the topics of the document. available topics includes: תנך, הלכה, מדרש, etc.
-
-3. Required/Excluded Terms:
-   - Required (+): +term (must contain)
-   - Excluded (-): -term (must not contain)
-   - Example: +security cloud -deprecated
-   - Equivalent to: security AND cloud AND NOT deprecated
-
-4. Phrase Search:
-   - Use quotes: "exact phrase"
-   - Both single/double quotes work
-   - Escape quotes with \\"
-   - Slop operator: "term1 term2"~N 
-   - Example: "cloud security"~2 
-   - the above will find "cloud framework and security "
-   - Prefix matching: "start of phrase"*
-
-5. Wildcards:
-   - ? for single character
-   - * for any number of characters
-   - Example: sec?rity cloud*
-
-6. Special Features:
-   - All docs: * 
-   - Boost terms: term^2.0 (positive numbers only)
-   - Example: security^2.0 cloud
-   - the above will boost security by 2.0
-   
-Query Examples:
-1. Basic: +שבת +חולה +אסור
-2. Field-specific: text:סיני AND topics:תנך
-3. Phrase with slop: "security framework"~2
-4. Complex: +reference:בראשית +text:"הבל"^2.0 +(דמי OR דמים) -הבלים
-6. Mixed: (text:"רבנו משה"^2.0 OR reference:"משנה תורה") AND topics:הלכה) AND text:"תורה המלך"~3 AND NOT topics:מדרש
-
-Tips:
-- Group complex expressions with parentheses
-- Use quotes for exact phrases
-- Add + for required terms, - for excluded terms
-- Boost important terms with ^N
-- use field-specific terms for better results. 
-"""
 
     async def _run_in_executor(self, func, *args):
         """Run blocking operations in a thread pool executor"""
@@ -88,16 +29,17 @@ Tips:
 
     async def search(self, query: str, num_results: int = 10) -> List[Dict[str, Any]]:
         """Search the Tantivy index with the given query using Tantivy's query syntax"""
+        if not self.searcher:
+            self.logger.error("Searcher not initialized")
+            return []
+
         try:
-            # Create a searcher in the thread pool
-            searcher = await self._run_in_executor(self.index.searcher)
-     
             # Parse and execute the query
             try:
                 # First try with lenient parsing in the thread pool
                 query_parser = await self._run_in_executor(self.index.parse_query_lenient, query)
                 search_results = await self._run_in_executor(
-                    searcher.search, query_parser[0], num_results
+                    self.searcher.search, query_parser[0], num_results
                 )
                 search_results = search_results.hits
                 
@@ -109,8 +51,10 @@ Tips:
             results = []
             for score, doc_address in search_results:
                 # Get document in thread pool
-                doc = await self._run_in_executor(searcher.doc, doc_address)
+                doc = await self._run_in_executor(self.searcher.doc, doc_address)
                 text = doc.get_first("text")
+                if not text:
+                    continue
                 
                 # Extract highlighted snippets based on query terms
                 # Remove special syntax for highlighting while preserving Hebrew
@@ -164,14 +108,24 @@ Tips:
             self.logger.error(f"Error during search: {str(e)}")
             return []
 
-    def validate_index(self) -> bool:
+    async def validate_index(self) -> bool:
         """Validate that the index exists and is accessible"""
+        if not self.searcher:
+            return False
+            
         try:
-            # Try to create a searcher and perform a simple search in thread pool
-            searcher = self.index.searcher()
-            query_parser = self.index.parse_query("*")
-            searcher.search( query_parser, 1)
+            # Parse and execute a simple query in the thread pool
+            query_parser = await self._run_in_executor(self.index.parse_query, "*")
+            await self._run_in_executor(self.searcher.search, query_parser, 1)
             return True
         except Exception as e:
             self.logger.error(f"Index validation failed: {e}")
             return False
+
+    def __del__(self):
+        """Cleanup resources"""
+        if self.searcher:
+            try:
+                self.searcher.close()
+            except:
+                pass
