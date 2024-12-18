@@ -31,8 +31,16 @@ download and extract the index from [here](https://drive.google.com/file/d/1lpbB
 ```
 pip install .
 ```
+## Running the Server
 
-## Usage
+The server can be run directly:
+
+```bash
+uv --directory path/to/directory run jewish_library
+```
+
+Or through an MCP client that supports the Model Context Protocol.
+## Available tools
 
 The server provides a single tool through the MCP interface:
 
@@ -83,15 +91,7 @@ mcp-otzaria-server/
 └── README.md
 ```
 
-### Running the Server
 
-The server can be run directly:
-
-```bash
-uv --directory path/to/directory run jewish_library
-```
-
-Or through an MCP client that supports the Model Context Protocol.
 
 ## Requirements
 
