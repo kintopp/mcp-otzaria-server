@@ -13,7 +13,7 @@ class TantivySearchAgent:
         self.index_path = index_path
         self.logger = logging.getLogger(__name__)
         try:
-            self.index = Index.open(index_path)
+            self.index = Index.open(index_path)            
             self.logger.info(f"Successfully opened Tantivy index at {index_path}")
         except Exception as e:
             self.logger.error(f"Failed to open Tantivy index: {e}")
@@ -164,13 +164,13 @@ Tips:
             self.logger.error(f"Error during search: {str(e)}")
             return []
 
-    async def validate_index(self) -> bool:
+    def validate_index(self) -> bool:
         """Validate that the index exists and is accessible"""
         try:
             # Try to create a searcher and perform a simple search in thread pool
-            searcher = await self._run_in_executor(self.index.searcher)
-            query_parser = await self._run_in_executor(self.index.parse_query, "*")
-            await self._run_in_executor(searcher.search, query_parser, 1)
+            searcher = self.index.searcher()
+            query_parser = self.index.parse_query("*")
+            searcher.search( query_parser, 1)
             return True
         except Exception as e:
             self.logger.error(f"Index validation failed: {e}")

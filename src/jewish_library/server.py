@@ -1,6 +1,3 @@
-from typing import Any
-
-import httpx
 from mcp.server.models import InitializationOptions
 import mcp.types as types
 from mcp.server import NotificationOptions, Server
@@ -8,18 +5,18 @@ import mcp.server.stdio
 import asyncio
 import os
 from .tantivy_search_agent import TantivySearchAgent
+import json
 
 # Initialize TantivySearchAgent with the index path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 index_path = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "index")
 search_agent = TantivySearchAgent(index_path)
+if not search_agent.validate_index():
+    raise ValueError("failed to open index")
 
 server = Server("jewish_library")
 
-async def search_jewish_library(query: str) -> list[dict]:
-    """Search the Jewish library using TantivySearchAgent"""
-    results = search_agent.search(query)
-    return results
+
 
 @server.list_tools()
 async def handle_list_tools() -> list[types.Tool]:
@@ -40,11 +37,25 @@ async def handle_list_tools() -> list[types.Tool]:
                                      "- Field-specific search (text:term, reference:term, topics:term)\n" +
                                      "- Boolean operators (AND, OR)\n" +
                                      "- Required/excluded terms (+term, -term)\n" +
-                                     "- Phrase search ('exact phrase')\n" +
+                                     '- Phrase search ("exact phrase")\n' +
                                      "- Wildcards (?, *)",
                     },
                 },
                 "required": ["query"],
+            },
+        ),
+        types.Tool(
+            name="hello",
+            description="A simple test tool that returns a greeting",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name to greet",
+                    },
+                },
+                "required": ["name"],
             },
         ),
     ]
@@ -61,37 +72,48 @@ async def handle_call_tool(
         raise ValueError("Missing arguments")
   
     if name == "full_text_search":
-        query = arguments.get("query")
-        if not query:
-            raise ValueError("Missing query parameter")
-        
-        results = await search_jewish_library(query)
-        if not results:
+        try:
+            query = arguments.get("query")
+            if not query:
+                raise ValueError("Missing query parameter")
+            
+            results = await search_agent.search(query, num_results=1)
+            if not results or len(results) == 0:
+                return [types.TextContent(
+                    type="text",
+                    text="No results found"
+                )]
+            formatted_results = []
+            for result in results:
+                formatted_results.append(f"Text: {result.get('text', 'N/A')}\nReference: {result.get('reference', 'N/A')}")
+            return [
+                types.TextContent(
+                    type="text",
+                    text="\n\n".join(formatted_results)
+                )
+            ]
+        except Exception as err:            
+            return [types.TextContent(
+                    type="text",
+                    text=f"Error: {str(err)}"
+                )]
+    
+    elif name == "hello":
+        try:
+            name_param = arguments.get("name")
+            if not name_param:
+                raise ValueError("Missing name parameter")
+            
             return [types.TextContent(
                 type="text",
-                text="No results found"
+                text=f"Hello, {name_param}! This is a test message from the Jewish Library server."
             )]
-        
-        # Format results into readable text
-        results_text = "Search Results:\n\n"
-        for i, result in enumerate(results, 1):
-            results_text += f"Result {i}:\n"
-            if result.get("reference"):
-                results_text += f"Reference: {result['reference']}\n"
-            if result.get("topics"):
-                results_text += f"Topics: {result['topics']}\n"
-            results_text += "Highlights:\n"
-            for highlight in result["highlights"]:
-                results_text += f"  {highlight}\n"
-            results_text += f"Score: {result['score']:.2f}\n"
-            results_text += "-" * 80 + "\n\n"
-
-        return [
-            types.TextContent(
+        except Exception as err:
+            return [types.TextContent(
                 type="text",
-                text=results_text
-            )
-        ]
+                text=f"Error: {str(err)}"
+            )]
+            
     else:
         raise ValueError(f"Unknown tool: {name}")
     

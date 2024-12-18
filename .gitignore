@@ -1,5 +1,5 @@
 # Python-generated files
-__pycache__/
+*__pycache__/
 *.py[oc]
 build/
 dist/
@@ -10,4 +10,5 @@ uv.lock
 # Virtual environments
 .venv
 
+# Tantivy index
 index
