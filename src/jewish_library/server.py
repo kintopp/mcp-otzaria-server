@@ -141,7 +141,7 @@ async def handle_call_tool(
                 
                 return [types.TextContent(
                     type="text",
-                    text=f"שלום, {name_param}! This is a test message from the Jewish Library server.".encode("utf-8")
+                    text=f"שלום, {name_param}! This is a test message from the Jewish Library server."
                 )]
             except Exception as err:
                 logger.error(f"Hello tool error: {err}", exc_info=True)

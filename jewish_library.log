@@ -1,58 +1,177 @@
-2024-12-18 22:27:50,566 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000250EEEDD2D0>
-2024-12-18 22:27:50,567 - mcp.server - INFO - Processing request of type CallToolRequest
-2024-12-18 22:27:50,567 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
-2024-12-18 22:27:50,567 - jewish_library - DEBUG - Handling call_tool request for full_text_search with arguments {'query': 'tora'}
-2024-12-18 22:27:50,567 - jewish_library - INFO - Searching with query: tora
-2024-12-18 22:27:50,567 - jewish_library - DEBUG - Executing search with query: tora
-2024-12-18 22:27:50,638 - jewish_library.tantivy_search_agent - INFO - Found 0 results for query: tora
-2024-12-18 22:27:50,639 - jewish_library - DEBUG - Search completed: 0 results
-2024-12-18 22:27:50,639 - jewish_library - INFO - No results found
-2024-12-18 22:27:50,640 - mcp.server - DEBUG - Response sent
-2024-12-18 22:27:59,599 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000250EEEDD120>
-2024-12-18 22:27:59,600 - mcp.server - INFO - Processing request of type CallToolRequest
-2024-12-18 22:27:59,600 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
-2024-12-18 22:27:59,600 - jewish_library - DEBUG - Handling call_tool request for full_text_search with arguments {'query': 'torah'}
-2024-12-18 22:27:59,600 - jewish_library - INFO - Searching with query: torah
-2024-12-18 22:27:59,600 - jewish_library - DEBUG - Executing search with query: torah
-2024-12-18 22:27:59,607 - jewish_library.tantivy_search_agent - INFO - Found 1 results for query: torah
-2024-12-18 22:27:59,607 - jewish_library - DEBUG - Search completed: 1 results
-2024-12-18 22:27:59,607 - jewish_library - INFO - Found 1 results
-2024-12-18 22:27:59,607 - jewish_library - DEBUG - Response text: Text: והסמ"ג, לא ראיתי שהעתיק ברייתא זו כלל. ולפי הנראה, השמיטה לגמרי ולא הביאה בספרו! א"כ, מכלל שהוא מפרש ג"כ שעשה בתים עצמן מזהב או מעור בהמה טמאה ולכך לא הוצרך להביאה, כיון שכבר כתב בריש הלכות תפילין הקלף שכותבים בהם הפרשיות וגם הרצועות גם עור הבתים צריך להיות מבהמה או חיה טהורה וכו' גם צריכין עבוד לשמן- עיין שם79ספר מצוות גדול עשין סימן כב הקלף שכותבין בהן [ה]פרשיות, וגם הרצועות וגם עור הבתים (שבת כח, ב), צריך להיות מבהמה טהורה או חיה טהורה שנאמר (שמות יג, ט) למען תהיה תורת ה' בפיך מן המותר בפיך. ואפילו על גבי נבילות, כדאיתא בפרק שמנה שרצים (שם קח, א) (סימני ספר התרומה רג). וגם צריכין עיבוד לשמן כרבן שמעון בן גמליאל דאמר (סנהדרין מח, ב ובתו') עד שיעבדוהו לשמן; וכדרבא בפרק נגמר הדין (שם מז, ב) דאמר הזמנה לאו מלתא היא וכדרבי אבהו פרק הניזקין (גיטין נד, ב)The parchment upon which the relevant scriptural passages are written, as well as the straps and the leather hide of the boxes (as noted in Bavli tractate Shabbat 28b) must be made from the hides of a ritually pure anima or beast, as it is written (exodus 13:9) “So that the Torah of God will be in your mouth” – from that which is permitted to be in your mouth. It could even be written from the hides of nevelote (permissible animals slaughtered improperly) as was brought in a teaching in the chapter entitled “Eight Species of Crawling Animals” (Bavli tractate Shaabat 108a – and note 31 above; also in the book ‘The Signs of the Book on Tithes” 203) They also require being made specifically for that purpose, as per the dictum of rabbi Shim’own ben Gamliel, who stated (Bavli Sanhedrin 48b) that the leather must be made for that specific purpose (of making tefillin); as well as the statement of Rava in the chapter entitled “After the Sentence was Passed” (Bavli Sanhedrin 47b) who stated that one cannot designate specific use of an object, and like rabbi Avahu (In Bavli Gittin 54b- the bottom where he allows a seller of a Sefer Torah to disqualify the Torah secondary to his not designating the parchment to the specific use of making a Sefer Torah.) See the Appendix for a more complete text. .
-Reference: נודע ביהודה מהדורא קמא, אורח חיים,  א
-2024-12-18 22:27:59,609 - mcp.server - DEBUG - Response sent
-2024-12-18 22:28:09,217 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000250EEEDC610>
-2024-12-18 22:28:09,217 - mcp.server - INFO - Processing request of type CallToolRequest
-2024-12-18 22:28:09,217 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
-2024-12-18 22:28:09,218 - jewish_library - DEBUG - Handling call_tool request for full_text_search with arguments {'query': 'text:torah*'}
-2024-12-18 22:28:09,218 - jewish_library - INFO - Searching with query: text:torah*
-2024-12-18 22:28:09,218 - jewish_library - DEBUG - Executing search with query: text:torah*
-2024-12-18 22:28:09,222 - jewish_library.tantivy_search_agent - INFO - Found 1 results for query: text:torah*
-2024-12-18 22:28:09,222 - jewish_library - DEBUG - Search completed: 1 results
-2024-12-18 22:28:09,222 - jewish_library - INFO - Found 1 results
-2024-12-18 22:28:09,222 - jewish_library - DEBUG - Response text: Text: והסמ"ג, לא ראיתי שהעתיק ברייתא זו כלל. ולפי הנראה, השמיטה לגמרי ולא הביאה בספרו! א"כ, מכלל שהוא מפרש ג"כ שעשה בתים עצמן מזהב או מעור בהמה טמאה ולכך לא הוצרך להביאה, כיון שכבר כתב בריש הלכות תפילין הקלף שכותבים בהם הפרשיות וגם הרצועות גם עור הבתים צריך להיות מבהמה או חיה טהורה וכו' גם צריכין עבוד לשמן- עיין שם79ספר מצוות גדול עשין סימן כב הקלף שכותבין בהן [ה]פרשיות, וגם הרצועות וגם עור הבתים (שבת כח, ב), צריך להיות מבהמה טהורה או חיה טהורה שנאמר (שמות יג, ט) למען תהיה תורת ה' בפיך מן המותר בפיך. ואפילו על גבי נבילות, כדאיתא בפרק שמנה שרצים (שם קח, א) (סימני ספר התרומה רג). וגם צריכין עיבוד לשמן כרבן שמעון בן גמליאל דאמר (סנהדרין מח, ב ובתו') עד שיעבדוהו לשמן; וכדרבא בפרק נגמר הדין (שם מז, ב) דאמר הזמנה לאו מלתא היא וכדרבי אבהו פרק הניזקין (גיטין נד, ב)The parchment upon which the relevant scriptural passages are written, as well as the straps and the leather hide of the boxes (as noted in Bavli tractate Shabbat 28b) must be made from the hides of a ritually pure anima or beast, as it is written (exodus 13:9) “So that the Torah of God will be in your mouth” – from that which is permitted to be in your mouth. It could even be written from the hides of nevelote (permissible animals slaughtered improperly) as was brought in a teaching in the chapter entitled “Eight Species of Crawling Animals” (Bavli tractate Shaabat 108a – and note 31 above; also in the book ‘The Signs of the Book on Tithes” 203) They also require being made specifically for that purpose, as per the dictum of rabbi Shim’own ben Gamliel, who stated (Bavli Sanhedrin 48b) that the leather must be made for that specific purpose (of making tefillin); as well as the statement of Rava in the chapter entitled “After the Sentence was Passed” (Bavli Sanhedrin 47b) who stated that one cannot designate specific use of an object, and like rabbi Avahu (In Bavli Gittin 54b- the bottom where he allows a seller of a Sefer Torah to disqualify the Torah secondary to his not designating the parchment to the specific use of making a Sefer Torah.) See the Appendix for a more complete text. .
-Reference: נודע ביהודה מהדורא קמא, אורח חיים,  א
-2024-12-18 22:28:09,224 - mcp.server - DEBUG - Response sent
-2024-12-18 22:28:15,847 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000250EEEDC310>
-2024-12-18 22:28:15,848 - mcp.server - INFO - Processing request of type CallToolRequest
-2024-12-18 22:28:15,848 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
-2024-12-18 22:28:15,848 - jewish_library - DEBUG - Handling call_tool request for full_text_search with arguments {'query': '"Sefer Torah"'}
-2024-12-18 22:28:15,848 - jewish_library - INFO - Searching with query: "Sefer Torah"
-2024-12-18 22:28:15,849 - jewish_library - DEBUG - Executing search with query: "Sefer Torah"
-2024-12-18 22:28:15,854 - jewish_library.tantivy_search_agent - INFO - Found 1 results for query: "Sefer Torah"
-2024-12-18 22:28:15,855 - jewish_library - DEBUG - Search completed: 1 results
-2024-12-18 22:28:15,855 - jewish_library - INFO - Found 1 results
-2024-12-18 22:28:15,855 - jewish_library - DEBUG - Response text: Text: והסמ"ג, לא ראיתי שהעתיק ברייתא זו כלל. ולפי הנראה, השמיטה לגמרי ולא הביאה בספרו! א"כ, מכלל שהוא מפרש ג"כ שעשה בתים עצמן מזהב או מעור בהמה טמאה ולכך לא הוצרך להביאה, כיון שכבר כתב בריש הלכות תפילין הקלף שכותבים בהם הפרשיות וגם הרצועות גם עור הבתים צריך להיות מבהמה או חיה טהורה וכו' גם צריכין עבוד לשמן- עיין שם79ספר מצוות גדול עשין סימן כב הקלף שכותבין בהן [ה]פרשיות, וגם הרצועות וגם עור הבתים (שבת כח, ב), צריך להיות מבהמה טהורה או חיה טהורה שנאמר (שמות יג, ט) למען תהיה תורת ה' בפיך מן המותר בפיך. ואפילו על גבי נבילות, כדאיתא בפרק שמנה שרצים (שם קח, א) (סימני ספר התרומה רג). וגם צריכין עיבוד לשמן כרבן שמעון בן גמליאל דאמר (סנהדרין מח, ב ובתו') עד שיעבדוהו לשמן; וכדרבא בפרק נגמר הדין (שם מז, ב) דאמר הזמנה לאו מלתא היא וכדרבי אבהו פרק הניזקין (גיטין נד, ב)The parchment upon which the relevant scriptural passages are written, as well as the straps and the leather hide of the boxes (as noted in Bavli tractate Shabbat 28b) must be made from the hides of a ritually pure anima or beast, as it is written (exodus 13:9) “So that the Torah of God will be in your mouth” – from that which is permitted to be in your mouth. It could even be written from the hides of nevelote (permissible animals slaughtered improperly) as was brought in a teaching in the chapter entitled “Eight Species of Crawling Animals” (Bavli tractate Shaabat 108a – and note 31 above; also in the book ‘The Signs of the Book on Tithes” 203) They also require being made specifically for that purpose, as per the dictum of rabbi Shim’own ben Gamliel, who stated (Bavli Sanhedrin 48b) that the leather must be made for that specific purpose (of making tefillin); as well as the statement of Rava in the chapter entitled “After the Sentence was Passed” (Bavli Sanhedrin 47b) who stated that one cannot designate specific use of an object, and like rabbi Avahu (In Bavli Gittin 54b- the bottom where he allows a seller of a Sefer Torah to disqualify the Torah secondary to his not designating the parchment to the specific use of making a Sefer Torah.) See the Appendix for a more complete text. .
-Reference: נודע ביהודה מהדורא קמא, אורח חיים,  א
-2024-12-18 22:28:15,856 - mcp.server - DEBUG - Response sent
-2024-12-18 22:28:35,553 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000250EEEDC2B0>
-2024-12-18 22:28:35,554 - mcp.server - INFO - Processing request of type CallToolRequest
-2024-12-18 22:28:35,554 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
-2024-12-18 22:28:35,554 - jewish_library - DEBUG - Handling call_tool request for full_text_search with arguments {'query': 'text:"Torah of God"'}
-2024-12-18 22:28:35,554 - jewish_library - INFO - Searching with query: text:"Torah of God"
-2024-12-18 22:28:35,554 - jewish_library - DEBUG - Executing search with query: text:"Torah of God"
-2024-12-18 22:28:35,562 - jewish_library.tantivy_search_agent - INFO - Found 1 results for query: text:"Torah of God"
-2024-12-18 22:28:35,562 - jewish_library - DEBUG - Search completed: 1 results
-2024-12-18 22:28:35,562 - jewish_library - INFO - Found 1 results
-2024-12-18 22:28:35,562 - jewish_library - DEBUG - Response text: Text: והסמ"ג, לא ראיתי שהעתיק ברייתא זו כלל. ולפי הנראה, השמיטה לגמרי ולא הביאה בספרו! א"כ, מכלל שהוא מפרש ג"כ שעשה בתים עצמן מזהב או מעור בהמה טמאה ולכך לא הוצרך להביאה, כיון שכבר כתב בריש הלכות תפילין הקלף שכותבים בהם הפרשיות וגם הרצועות גם עור הבתים צריך להיות מבהמה או חיה טהורה וכו' גם צריכין עבוד לשמן- עיין שם79ספר מצוות גדול עשין סימן כב הקלף שכותבין בהן [ה]פרשיות, וגם הרצועות וגם עור הבתים (שבת כח, ב), צריך להיות מבהמה טהורה או חיה טהורה שנאמר (שמות יג, ט) למען תהיה תורת ה' בפיך מן המותר בפיך. ואפילו על גבי נבילות, כדאיתא בפרק שמנה שרצים (שם קח, א) (סימני ספר התרומה רג). וגם צריכין עיבוד לשמן כרבן שמעון בן גמליאל דאמר (סנהדרין מח, ב ובתו') עד שיעבדוהו לשמן; וכדרבא בפרק נגמר הדין (שם מז, ב) דאמר הזמנה לאו מלתא היא וכדרבי אבהו פרק הניזקין (גיטין נד, ב)The parchment upon which the relevant scriptural passages are written, as well as the straps and the leather hide of the boxes (as noted in Bavli tractate Shabbat 28b) must be made from the hides of a ritually pure anima or beast, as it is written (exodus 13:9) “So that the Torah of God will be in your mouth” – from that which is permitted to be in your mouth. It could even be written from the hides of nevelote (permissible animals slaughtered improperly) as was brought in a teaching in the chapter entitled “Eight Species of Crawling Animals” (Bavli tractate Shaabat 108a – and note 31 above; also in the book ‘The Signs of the Book on Tithes” 203) They also require being made specifically for that purpose, as per the dictum of rabbi Shim’own ben Gamliel, who stated (Bavli Sanhedrin 48b) that the leather must be made for that specific purpose (of making tefillin); as well as the statement of Rava in the chapter entitled “After the Sentence was Passed” (Bavli Sanhedrin 47b) who stated that one cannot designate specific use of an object, and like rabbi Avahu (In Bavli Gittin 54b- the bottom where he allows a seller of a Sefer Torah to disqualify the Torah secondary to his not designating the parchment to the specific use of making a Sefer Torah.) See the Appendix for a more complete text. .
-Reference: נודע ביהודה מהדורא קמא, אורח חיים,  א
-2024-12-18 22:28:35,564 - mcp.server - DEBUG - Response sent
+2024-12-19 14:42:58,486 - jewish_library - ERROR - Server error: unhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\server\stdio.py", line 83, in stdio_server
+  |     yield read_stream, write_stream
+  |   File "C:\dev\mcp-otzaria-server\src\jewish_library\server.py", line 169, in main
+  |     await server.run(
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\server\__init__.py", line 423, in run
+  |     async with ServerSession(
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\shared\session.py", line 122, in __aexit__
+  |     return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\shared\session.py", line 235, in _receive_loop
+    |     notification = self._receive_notification_type.model_validate(
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\pydantic\main.py", line 627, in model_validate
+    |     return cls.__pydantic_validator__.validate_python(
+    | pydantic_core._pydantic_core.ValidationError: 5 validation errors for ClientNotification
+    | ProgressNotification.method
+    |   Input should be 'notifications/progress' [type=literal_error, input_value='cancelled', input_type=str]
+    |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+    | ProgressNotification.params.progressToken
+    |   Field required [type=missing, input_value={'requestId': 5, 'reason'... -2: Request timed out'}, input_type=dict]
+    |     For further information visit https://errors.pydantic.dev/2.10/v/missing
+    | ProgressNotification.params.progress
+    |   Field required [type=missing, input_value={'requestId': 5, 'reason'... -2: Request timed out'}, input_type=dict]
+    |     For further information visit https://errors.pydantic.dev/2.10/v/missing
+    | InitializedNotification.method
+    |   Input should be 'notifications/initialized' [type=literal_error, input_value='cancelled', input_type=str]
+    |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+    | RootsListChangedNotification.method
+    |   Input should be 'notifications/roots/list_changed' [type=literal_error, input_value='cancelled', input_type=str]
+    |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\dev\mcp-otzaria-server\src\jewish_library\server.py", line 168, in main
+  |     async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+  |   File "C:\Users\Goldman\AppData\Roaming\uv\python\cpython-3.10.16-windows-x86_64-none\lib\contextlib.py", line 217, in __aexit__
+  |     await self.gen.athrow(typ, value, traceback)
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\server\stdio.py", line 80, in stdio_server
+  |     async with anyio.create_task_group() as tg:
+  |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 815, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\server\stdio.py", line 83, in stdio_server
+    |     yield read_stream, write_stream
+    |   File "C:\dev\mcp-otzaria-server\src\jewish_library\server.py", line 169, in main
+    |     await server.run(
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\server\__init__.py", line 423, in run
+    |     async with ServerSession(
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\shared\session.py", line 122, in __aexit__
+    |     return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\anyio\_backends\_asyncio.py", line 815, in __aexit__
+    |     raise BaseExceptionGroup(
+    | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\mcp\shared\session.py", line 235, in _receive_loop
+      |     notification = self._receive_notification_type.model_validate(
+      |   File "C:\dev\mcp-otzaria-server\.venv\lib\site-packages\pydantic\main.py", line 627, in model_validate
+      |     return cls.__pydantic_validator__.validate_python(
+      | pydantic_core._pydantic_core.ValidationError: 5 validation errors for ClientNotification
+      | ProgressNotification.method
+      |   Input should be 'notifications/progress' [type=literal_error, input_value='cancelled', input_type=str]
+      |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+      | ProgressNotification.params.progressToken
+      |   Field required [type=missing, input_value={'requestId': 5, 'reason'... -2: Request timed out'}, input_type=dict]
+      |     For further information visit https://errors.pydantic.dev/2.10/v/missing
+      | ProgressNotification.params.progress
+      |   Field required [type=missing, input_value={'requestId': 5, 'reason'... -2: Request timed out'}, input_type=dict]
+      |     For further information visit https://errors.pydantic.dev/2.10/v/missing
+      | InitializedNotification.method
+      |   Input should be 'notifications/initialized' [type=literal_error, input_value='cancelled', input_type=str]
+      |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+      | RootsListChangedNotification.method
+      |   Input should be 'notifications/roots/list_changed' [type=literal_error, input_value='cancelled', input_type=str]
+      |     For further information visit https://errors.pydantic.dev/2.10/v/literal_error
+      +------------------------------------
+2024-12-19 14:43:05,665 - jewish_library.tantivy_search_agent - INFO - Successfully opened Tantivy index at C:\dev\mcp-otzaria-server\index
+2024-12-19 14:43:05,666 - jewish_library - INFO - Search agent initialized
+2024-12-19 14:43:05,666 - mcp.server - DEBUG - Initializing server 'jewish_library'
+2024-12-19 14:43:05,667 - mcp.server - DEBUG - Registering handler for ListToolsRequest
+2024-12-19 14:43:05,667 - mcp.server - DEBUG - Registering handler for CallToolRequest
+2024-12-19 14:43:05,668 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-19 14:43:05,669 - jewish_library - INFO - Starting Jewish Library MCP server...
+2024-12-19 14:45:42,337 - jewish_library.tantivy_search_agent - INFO - Successfully opened Tantivy index at C:\dev\mcp-otzaria-server\index
+2024-12-19 14:45:42,337 - jewish_library - INFO - Search agent initialized
+2024-12-19 14:45:42,337 - mcp.server - DEBUG - Initializing server 'jewish_library'
+2024-12-19 14:45:42,337 - mcp.server - DEBUG - Registering handler for ListToolsRequest
+2024-12-19 14:45:42,338 - mcp.server - DEBUG - Registering handler for CallToolRequest
+2024-12-19 14:45:42,338 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-19 14:45:42,340 - jewish_library - INFO - Starting Jewish Library MCP server...
+2024-12-19 14:45:42,355 - mcp.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2024-12-19 14:45:42,356 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000160F0BADC60>
+2024-12-19 14:45:42,356 - mcp.server - INFO - Processing request of type ListToolsRequest
+2024-12-19 14:45:42,356 - mcp.server - DEBUG - Dispatching request of type ListToolsRequest
+2024-12-19 14:45:42,357 - jewish_library - DEBUG - Handling list_tools request
+2024-12-19 14:45:42,357 - mcp.server - DEBUG - Response sent
+2024-12-19 14:45:42,358 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000160F0BADDE0>
+2024-12-19 14:45:42,359 - mcp.server - INFO - Processing request of type ListToolsRequest
+2024-12-19 14:45:42,359 - mcp.server - DEBUG - Dispatching request of type ListToolsRequest
+2024-12-19 14:45:42,359 - jewish_library - DEBUG - Handling list_tools request
+2024-12-19 14:45:42,360 - mcp.server - DEBUG - Response sent
+2024-12-19 14:49:31,098 - jewish_library.tantivy_search_agent - INFO - Successfully opened Tantivy index at C:\dev\mcp-otzaria-server\index
+2024-12-19 14:49:31,099 - jewish_library - INFO - Search agent initialized
+2024-12-19 14:49:31,099 - mcp.server - DEBUG - Initializing server 'jewish_library'
+2024-12-19 14:49:31,100 - mcp.server - DEBUG - Registering handler for ListToolsRequest
+2024-12-19 14:49:31,100 - mcp.server - DEBUG - Registering handler for CallToolRequest
+2024-12-19 14:49:31,102 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-19 14:49:31,104 - jewish_library - INFO - Starting Jewish Library MCP server...
+2024-12-19 14:49:31,212 - mcp.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2024-12-19 14:49:31,252 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002BC6E91DC60>
+2024-12-19 14:49:31,252 - mcp.server - INFO - Processing request of type ListToolsRequest
+2024-12-19 14:49:31,253 - mcp.server - DEBUG - Dispatching request of type ListToolsRequest
+2024-12-19 14:49:31,253 - jewish_library - DEBUG - Handling list_tools request
+2024-12-19 14:49:31,255 - mcp.server - DEBUG - Response sent
+2024-12-19 14:49:31,280 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002BC6E91DDE0>
+2024-12-19 14:49:31,281 - mcp.server - INFO - Processing request of type ListResourcesRequest
+2024-12-19 14:49:31,282 - mcp.server - DEBUG - Response sent
+2024-12-19 14:49:31,296 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002BC6E91C820>
+2024-12-19 14:49:31,296 - mcp.server - INFO - Processing request of type ListResourceTemplatesRequest
+2024-12-19 14:49:31,297 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:39,285 - jewish_library.tantivy_search_agent - INFO - Successfully opened Tantivy index at C:\dev\mcp-otzaria-server\index
+2024-12-20 00:43:39,286 - jewish_library - INFO - Search agent initialized
+2024-12-20 00:43:39,286 - mcp.server - DEBUG - Initializing server 'jewish_library'
+2024-12-20 00:43:39,286 - mcp.server - DEBUG - Registering handler for ListToolsRequest
+2024-12-20 00:43:39,286 - mcp.server - DEBUG - Registering handler for CallToolRequest
+2024-12-20 00:43:39,287 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-20 00:43:39,289 - jewish_library - INFO - Starting Jewish Library MCP server...
+2024-12-20 00:43:39,324 - mcp.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2024-12-20 00:43:39,325 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001B0F0FBDCC0>
+2024-12-20 00:43:39,325 - mcp.server - INFO - Processing request of type ListToolsRequest
+2024-12-20 00:43:39,325 - mcp.server - DEBUG - Dispatching request of type ListToolsRequest
+2024-12-20 00:43:39,326 - jewish_library - DEBUG - Handling list_tools request
+2024-12-20 00:43:39,327 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:39,330 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001B0F0FBDE40>
+2024-12-20 00:43:39,331 - mcp.server - INFO - Processing request of type ListResourcesRequest
+2024-12-20 00:43:39,331 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:39,334 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001B0F0FBC880>
+2024-12-20 00:43:39,334 - mcp.server - INFO - Processing request of type ListResourceTemplatesRequest
+2024-12-20 00:43:39,334 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:44,387 - jewish_library.tantivy_search_agent - INFO - Successfully opened Tantivy index at C:\dev\mcp-otzaria-server\index
+2024-12-20 00:43:44,387 - jewish_library - INFO - Search agent initialized
+2024-12-20 00:43:44,389 - mcp.server - DEBUG - Initializing server 'jewish_library'
+2024-12-20 00:43:44,389 - mcp.server - DEBUG - Registering handler for ListToolsRequest
+2024-12-20 00:43:44,389 - mcp.server - DEBUG - Registering handler for CallToolRequest
+2024-12-20 00:43:44,389 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-12-20 00:43:44,391 - jewish_library - INFO - Starting Jewish Library MCP server...
+2024-12-20 00:43:44,405 - mcp.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2024-12-20 00:43:44,406 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D36AC3DC60>
+2024-12-20 00:43:44,406 - mcp.server - INFO - Processing request of type ListToolsRequest
+2024-12-20 00:43:44,406 - mcp.server - DEBUG - Dispatching request of type ListToolsRequest
+2024-12-20 00:43:44,406 - jewish_library - DEBUG - Handling list_tools request
+2024-12-20 00:43:44,407 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:44,409 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D36AC3DDE0>
+2024-12-20 00:43:44,409 - mcp.server - INFO - Processing request of type ListResourcesRequest
+2024-12-20 00:43:44,410 - mcp.server - DEBUG - Response sent
+2024-12-20 00:43:44,411 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D36AC3C820>
+2024-12-20 00:43:44,412 - mcp.server - INFO - Processing request of type ListResourceTemplatesRequest
+2024-12-20 00:43:44,412 - mcp.server - DEBUG - Response sent
+2024-12-20 00:44:24,023 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D36AC3DB70>
+2024-12-20 00:44:24,024 - mcp.server - INFO - Processing request of type CallToolRequest
+2024-12-20 00:44:24,024 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
+2024-12-20 00:44:24,024 - jewish_library - DEBUG - Handling call_tool request for hello with arguments {'name': 'sivan'}
+2024-12-20 00:44:24,025 - mcp.server - DEBUG - Response sent
+2024-12-20 00:44:48,691 - mcp.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D36AC3D270>
+2024-12-20 00:44:48,691 - mcp.server - INFO - Processing request of type CallToolRequest
+2024-12-20 00:44:48,692 - mcp.server - DEBUG - Dispatching request of type CallToolRequest
+2024-12-20 00:44:48,692 - jewish_library - DEBUG - Handling call_tool request for hello with arguments {'name': 'סיון'}
+2024-12-20 00:44:48,692 - mcp.server - DEBUG - Response sent

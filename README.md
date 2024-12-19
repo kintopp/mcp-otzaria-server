@@ -40,6 +40,26 @@ uv --directory path/to/directory run jewish_library
 ```
 
 Or through an MCP client that supports the Model Context Protocol.
+for claude desktop app and cline you should use the following config:
+```
+{
+  "mcpServers": {        
+      "jewish_library": {
+          "command": "uv",
+          "args": [
+              "--directory",
+              "C:/dev/mcp-otzaria-server",
+              "run",
+              "jewish_library"
+          ],
+          "env": {
+            "PYTHONIOENCODING": "utf-8" 
+          }
+      }
+  }
+}
+```
+
 ## Available tools
 
 The server provides a single tool through the MCP interface:
@@ -78,18 +98,7 @@ This project uses:
 - [MCP SDK](https://github.com/modelcontextprotocol/sdk) for server implementation
 - [Tantivy](https://github.com/quickwit-oss/tantivy) for full-text search capabilities
 
-### Project Structure
 
-```
-mcp-otzaria-server/
-├── src/
-│   └── jewish_library/
-│       ├── server.py         # Main MCP server implementation
-│       └── tantivy_search_agent.py  # Search functionality
-├── index/                    # Search indices
-├── pyproject.toml           # Project configuration
-└── README.md
-```
 
 
 
