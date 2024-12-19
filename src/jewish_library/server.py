@@ -11,7 +11,7 @@ from .tantivy_search_agent import TantivySearchAgent
 
 # Configure logging
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(sys.stderr),
@@ -54,7 +54,14 @@ async def handle_list_tools() -> list[types.Tool]:
                                      "- Boolean operators (AND, OR)\n" +
                                      "- Required/excluded terms (+term, -term)\n" +
                                      '- Phrase search ("exact phrase")\n' +
-                                     "- Wildcards (?, *)",
+                                     "- Wildcards (?, *)\n"+
+                                     "- Example: reference:בראשית פרק א\n" +
+                                     '- Example: text:"גזלן קונה בשינוי" topics:תלמוד OR הלכה',
+                    },
+                    "num_results": {
+                        "type": "integer",
+                        "description": "The maximum number of results to return",
+                        "default": 10,
                     },
                 },
                 "required": ["query"],
@@ -94,13 +101,16 @@ async def handle_call_tool(
             try:
                 query = arguments.get("query")
                 if not query:
-                    raise ValueError("Missing query parameter")
+                    raise ValueError("Missing query parameter")                
+                num_results = arguments.get("num_results", 10)
+                if not isinstance(num_results, int) or num_results <= 0:
+                    raise ValueError("Invalid num_results parameter")
                 
                 logger.info(f"Searching with query: {query}")
                 
                 # Now do the actual search
                 logger.debug(f"Executing search with query: {query}")
-                results = await search_agent.search(query, num_results=1)
+                results = await search_agent.search(query, num_results = num_results)
                 logger.debug(f"Search completed: {len(results)} results")
                 
                 if not results or len(results) == 0:
