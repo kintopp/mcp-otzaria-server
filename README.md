@@ -21,7 +21,7 @@ Requires Python 3.10 or higher.
 
 ### Clone the repository
 ```bash
-git clone https://github.com/yourusername/mcp-otzaria-server.git
+git clone https://github.com/sivan22/mcp-otzaria-server.git
 cd mcp-otzaria-server
 ```
 ### Get the index
