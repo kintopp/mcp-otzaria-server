@@ -48,7 +48,7 @@ for claude desktop app and cline you should use the following config:
           "command": "uv",
           "args": [
               "--directory",
-              "C:/dev/mcp-otzaria-server",
+              "your/path/to/directory",
               "run",
               "jewish_library"
           ],
