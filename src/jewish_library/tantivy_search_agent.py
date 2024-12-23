@@ -75,8 +75,8 @@ class TantivySearchAgent:
                     if matches:
                         highlights = []
                         for match in matches:
-                            start = max(0, match.start() - 50)
-                            end = min(len(text), match.end() + 50)
+                            start = max(0, match.start() - 100)
+                            end = min(len(text), match.end() + 100)
                             highlight = text[start:end]
                             if start > 0:
                                 highlight = f"...{highlight}"

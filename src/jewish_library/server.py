@@ -49,38 +49,77 @@ async def handle_list_tools() -> list[types.Tool]:
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The query to search for. Supports advanced query syntax including:\n" + 
-                                     "- Field-specific search (text:term, reference:term, topics:term)\n" +
-                                     "- Boolean operators (AND, OR)\n" +
-                                     "- Required/excluded terms (+term, -term)\n" +
-                                     '- Phrase search ("exact phrase")\n' +
-                                     "- Wildcards (?, *)\n"+
-                                     "- Example: reference:בראשית פרק א\n" +
-                                     '- Example: text:"גזלן קונה בשינוי" topics:תלמוד OR הלכה',
+                        "description": """
+Instructions for generating a query:
+
+1. Boolean Operators:
+
+   - AND: term1 AND term2 (both required)
+   - OR: term1 OR term2 (either term)
+   - Multiple words default to OR operation (cloud network = cloud OR network)
+   - AND takes precedence over OR
+   - Example: Shabath AND (walk OR go)
+
+2. Field-specific Terms:
+   - Field-specific terms: field:term
+   - Example: text:אדם AND reference:בראשית
+   - available fields: text, reference, topics
+   - text contains the text of the document
+   - reference contains the citation of the document, e.g. בראשית, פרק א
+   - topics contains the topics of the document. available topics includes: תנך, הלכה, מדרש, etc.
+
+3. Required/Excluded Terms:
+   - Required (+): +term (must contain)
+   - Excluded (-): -term (must not contain)
+   - Example: +security cloud -deprecated
+   - Equivalent to: security AND cloud AND NOT deprecated
+
+4. Phrase Search:
+   - Use quotes: "exact phrase"
+   - Both single/double quotes work
+   - Escape quotes with \\"
+   - Slop operator: "term1 term2"~N 
+   - Example: "cloud security"~2 
+   - the above will find "cloud framework and security "
+   - Prefix matching: "start of phrase"*
+
+5. Wildcards:
+   - ? for single character
+   - * for any number of characters
+   - Example: sec?rity cloud*
+
+6. Special Features:
+   - All docs: * 
+   - Boost terms: term^2.0 (positive numbers only)
+   - Example: security^2.0 cloud
+   - the above will boost security by 2.0
+   
+Query Examples:
+1. Basic: +שבת +חולה +אסור
+2. Field-specific: text:סיני AND topics:תנך
+3. Phrase with slop: "security framework"~2
+4. Complex: +reference:בראשית +text:"הבל"^2.0 +(דמי OR דמים) -הבלים
+6. Mixed: (text:"רבנו משה"^2.0 OR reference:"משנה תורה") AND topics:הלכה) AND text:"תורה המלך"~3 AND NOT topics:מדרש
+
+Tips:
+- Group complex expressions with parentheses
+- Use quotes for exact phrases
+- Add + for required terms, - for excluded terms
+- Boost important terms with ^N
+- use field-specific terms for better results. 
+- the corpus to search in is an ancient Hebrew corpus: Tora and Talmud. so Try to use ancient Hebrew terms and or Talmudic expressions and prevent modern words that are not common in talmudic texts
+"""
                     },
                     "num_results": {
                         "type": "integer",
-                        "description": "The maximum number of results to return",
-                        "default": 10,
+                        "description": "The maximum number of results to return (default: 25)",
+                        "default": 25,
                     },
                 },
                 "required": ["query"],
             },
         ),
-        types.Tool(
-            name="hello",
-            description="A simple test tool that returns a greeting",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "The name to greet",
-                    },
-                },
-                "required": ["name"],
-            },
-        ),
+   
     ]
 
 @server.call_tool()
@@ -102,7 +141,7 @@ async def handle_call_tool(
                 query = arguments.get("query")
                 if not query:
                     raise ValueError("Missing query parameter")                
-                num_results = arguments.get("num_results", 10)
+                num_results = arguments.get("num_results", 25)
                 if not isinstance(num_results, int) or num_results <= 0:
                     raise ValueError("Invalid num_results parameter")
                 
@@ -124,7 +163,7 @@ async def handle_call_tool(
                 for result in results:
                     text = result.get('text', 'N/A')
                     reference = result.get('reference', 'N/A')
-                    formatted_results.append(f"Text: {text}\nReference: {reference}")
+                    formatted_results.append(f"Reference: {reference}\nText: {text}\n")
                 
                 logger.info(f"Found {len(formatted_results)} results")
                 response_text = "\n\n".join(formatted_results)
@@ -143,23 +182,7 @@ async def handle_call_tool(
                         text=f"Error: {str(err)}"
                     )]
         
-        elif name == "hello":
-            try:
-                name_param = arguments.get("name")
-                if not name_param:
-                    raise ValueError("Missing name parameter")
-                
-                return [types.TextContent(
-                    type="text",
-                    text=f"שלום, {name_param}! This is a test message from the Jewish Library server."
-                )]
-            except Exception as err:
-                logger.error(f"Hello tool error: {err}", exc_info=True)
-                return [types.TextContent(
-                    type="text",
-                    text=f"Error: {str(err)}"
-                )]
-                
+    
         else:
             raise ValueError(f"Unknown tool: {name}")
             
