@@ -12,3 +12,4 @@ uv.lock
 
 # Tantivy index
 index
+.DS_Store
